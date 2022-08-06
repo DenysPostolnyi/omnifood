@@ -143,14 +143,10 @@
     justify-content: center;
     transition: all 0.5s ease-in;
 
-    /* Hide navigation */
-    /* Allows NO transitions at all */
-    /* display: none; */
-
     /* 1) Hide it visually */
     opacity: 0;
 
-    /* 2) Make it unaccessible to mouse and keyboard */
+    /* 2) Make it inaccessible to mouse and keyboard */
     pointer-events: none;
 
     /* 3) Hide it from screen readers */
@@ -295,7 +291,7 @@
 }
 
 /**************************/
-/* Fixing Safaru flexbox gap */
+/* Fixing Safari flexbox gap */
 /**************************/
 
 .no-flexbox-gap .main-nav-list li:not(:last-child) {
