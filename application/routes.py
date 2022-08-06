@@ -8,6 +8,7 @@ def home():
     if request.method == 'POST':
         print(f"Full name {request.form.get('full_name')}")
         print(f"Email {request.form.get('email')}")
+        print(f"Email {request.form.get('plan')}")
         print(f"Here {request.form.get('here')}")
     return render_template('index.html')
 
