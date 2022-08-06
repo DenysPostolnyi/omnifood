@@ -1,6 +1,5 @@
 const yearEl = document.querySelector(".year");
 const currentYear = new Date().getFullYear();
-console.log(currentYear);
 yearEl.textContent = currentYear.toString();
 
 const btnNav = document.querySelector('.btn-mobile-nav');
@@ -86,3 +85,7 @@ function checkFlexGap() {
 
 checkFlexGap();
 
+function message (text){
+    alert(text);
+    console.log(text)
+}
