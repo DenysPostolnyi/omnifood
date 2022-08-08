@@ -168,6 +168,17 @@
   font-weight: 700;
 }
 
+.wellcome {
+  display: flex;
+  /*align-items: center;*/
+  justify-content: center;
+}
+
+.wellcome h2 {
+  margin-bottom: 4.8rem;
+  color: #cf711f;
+}
+
 /**************************/
 /* FEATURED IN */
 /**************************/

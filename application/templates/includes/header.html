@@ -16,9 +16,11 @@
       <li>
         <a href="#pricing" class="main-nav-link">Pricing</a>
       </li>
-      <li>
-        <a href="#cta" class="main-nav-link nav-cta">Try for free</a>
-      </li>
+      {% if not session['full_name'] %}
+        <li>
+          <a href="#cta" class="main-nav-link nav-cta">Try for free</a>
+        </li>
+      {% endif %}
     </ul>
   </nav>
 

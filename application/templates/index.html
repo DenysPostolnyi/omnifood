@@ -3,6 +3,11 @@
 {% block content %}
   <main>
     <section class="section-hero">
+      {% if session['full_name'] %}
+        <div class="wellcome">
+          <h2 class="heading-secondary">Hello, {{ session['full_name'] }}</h2>
+        </div>
+      {% endif %}
       <div class="hero">
         <div class="hero-text-box">
           <h1 class="heading-primary">A healthy meal delivered to your door, every single day </h1>
@@ -393,7 +398,7 @@
       </div>
     </section>
 
-    <section class="section-cta" id="cta">
+    <section class="section-cta {% if session['email'] %} close {% endif %}" id="cta">
       <div class="container">
         <div class="cta">
           <div class="cta-text-box">
