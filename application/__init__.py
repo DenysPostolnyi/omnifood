@@ -1,7 +1,7 @@
 from flask import Flask
 from config import Config
 from flask_mongoengine import MongoEngine
-# from flask_restx import Api
+# from flask_restplus import Api
 
 # api = Api()
 

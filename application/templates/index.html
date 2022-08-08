@@ -412,14 +412,6 @@
                 <input name="email" id="email" type="email" placeholder="user@gmail.com" required>
               </div>
               <div>
-                <label for="select-plan">Choose plan</label>
-                <select name="plan" id="select-plan" required>
-                  <option value="">Please choose one option</option>
-                  <option value="Starter">Starter</option>
-                  <option value="Complete">Complete</option>
-                </select>
-              </div>
-              <div>
                 <label for="select-here">Where did you hear about us</label>
                 <select name="here" id="select-here" required>
                   <option value="">Please choose one option</option>
@@ -438,4 +430,26 @@
       </div>
     </section>
   </main>
+
+  <div class="login close-modal" name="modal-window">
+    <div class="login-content">
+      <div class="login-heading">
+        <h2 class="heading-secondary">Sign in</h2>
+        <button class="btn-login-close">
+          <ion-icon class="icon-login-close" name="close-outline"></ion-icon>
+        </button>
+      </div>
+      <form class="login-form" action="/login" method="post">
+        <div>
+          <label for="full-name">Full name</label>
+          <input name="full_name" id="full-name" type="text" placeholder="John Smith" required>
+        </div>
+        <div>
+          <label for="email">Email address</label>
+          <input name="email" id="email" type="email" placeholder="user@gmail.com" required>
+        </div>
+        <button class="btn btn--form">Sign in</button>
+      </form>
+    </div>
+  </div>
 {% endblock %}

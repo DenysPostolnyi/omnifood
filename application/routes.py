@@ -3,6 +3,16 @@ from application import app, db
 from application.models import Request
 
 
+# from flask_restplus import Resource
+
+
+##################################################
+# API part
+
+
+##################################################
+
+
 @app.route('/', methods=['POST', 'GET'])
 @app.route('/home', methods=['POST', 'GET'])
 def home():
@@ -10,6 +20,11 @@ def home():
     if request.method == 'POST':
         message = make_request(request.form)
     return render_template('index.html', text=message)
+
+
+@app.route('/login')
+def login():
+    return render_template('login.html')
 
 
 def make_request(form):
@@ -22,5 +37,6 @@ def make_request(form):
     plan = form.get('plan')
     here = form.get('here')
 
-    req = Request(user_id=user_id, full_name=name, email=email, plan=plan, here=here)
+    req = Request(user_id=user_id, full_name=name, email=email, plan=plan, here=here, is_active=True)
+    req.save()
     return 'success'

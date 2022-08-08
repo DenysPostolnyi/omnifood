@@ -25,7 +25,7 @@
   <script defer src="../static/js/script.js"></script>
   <title>Omnifood &mdash; Never cook again</title>
 </head>
-<body onload="{% if text != None %} message('{{ text }}') {% endif %}">
+<body onload="{% if text and text != None %} message('{{ text }}') {% endif %}">
 {% include "includes/header.html" %}
 {% block content %}
 {% endblock %}

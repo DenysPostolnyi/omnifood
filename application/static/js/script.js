@@ -85,7 +85,35 @@ function checkFlexGap() {
 
 checkFlexGap();
 
-function message (text){
+function message(text) {
     alert(text);
     console.log(text)
 }
+
+///////////////////////////////
+// Modal window
+const modal = document.querySelector(".login");
+
+// Get the button that opens the modal
+const signBtn = document.querySelector(".sign-in-btn");
+
+// Get the <button> element that closes the modal
+const closeBtn = document.querySelector('.btn-login-close');
+
+// When the user clicks on the button, open the modal
+signBtn.addEventListener('click', function () {
+    modal.classList.toggle('open-modal');
+});
+
+// When the user clicks on <span> (x), close the modal
+closeBtn.addEventListener('click', function () {
+    modal.classList.toggle('open-modal');
+});
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function (event) {
+    if (event.target == modal) {
+        modal.classList.toggle('open-modal');
+    }
+}
+
