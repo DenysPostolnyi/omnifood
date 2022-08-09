@@ -19,16 +19,30 @@
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
+  <title>Omnifood &mdash; Never cook again</title>
   <!--  For smooth scroll-->
+
   <script defer src="https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js"></script>
 
   <script defer src="../static/js/script.js"></script>
-  <title>Omnifood &mdash; Never cook again</title>
+
 </head>
-<body onload="{% if text and text != None %} message('{{ text }}') {% endif %}">
-{% include "includes/header.html" %}
-{% block content %}
-{% endblock %}
-{% include "includes/footer.html" %}
-</body>
+{% with messages = get_flashed_messages(with_categories=false) %}
+  <body onload="
+      {% if text and text != None %}
+        message('{{ text }}')
+      {% elif messages %}
+        {% for message in messages %}
+          message('{{ message }}')
+        {% endfor %}
+      {% endif %}">
+
+  {% include "includes/header.html" %}
+  {% block content %}
+  {% endblock %}
+  {% include "includes/footer.html" %}
+  </body>
+{% endwith %}
+
+
 </html>

@@ -30,11 +30,13 @@ allLinks.forEach(function (link) {
         if (href === '#') window.scrollTo({
             top: 0,
             behavior: 'smooth',
-        });
+        })
         // Scroll back to the top
-        if (href !== '#' && href.startsWith('#')) {
+        else if (href !== '#' && href.startsWith('#')) {
             const sectionEl = document.querySelector(href);
             sectionEl.scrollIntoView({behavior: 'smooth'});
+        } else {
+            location.assign(href);
         }
 // close nav menu
         if (link.classList.contains('main-nav-link'))
@@ -78,12 +80,15 @@ function checkFlexGap() {
     document.body.appendChild(flex);
     let isSupported = flex.scrollHeight === 1;
     flex.parentNode.removeChild(flex);
-    console.log(isSupported);
+    // console.log(isSupported);
 
     if (!isSupported) document.body.classList.add("no-flexbox-gap");
 }
 
 checkFlexGap();
+
+/////////////////////////////////////
+// Showing message
 
 function message(text) {
     alert(text);

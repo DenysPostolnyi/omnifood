@@ -1,7 +1,7 @@
 <footer class="footer">
   <div class="container grid grid--footer">
     <div class="logo-col">
-      <a href="{{ url_for('home') }}" class="footer-logo">
+      <a href="#" class="footer-logo">
         <img class="logo" src="../static/img/omnifood-logo.png" alt="Omnifood logo">
       </a>
 
@@ -34,7 +34,7 @@
       <ul class="footer-nav">
         <li><a class="footer-link" href="#cta">Create account</a></li>
         {% if session['full_name'] %}
-          <li><a class="footer-link log-out-btn" id="log-out-btn" href="{{ url_for('logout') }} ">Log out</a></li>
+          <li><a class="footer-link log-out-btn" id="log-out-btn" href="{{ url_for('logout') }}">Log out</a></li>
         {% else %}
           <li><a class="footer-link sign-in-btn" id="sign-in-btn" href="#sign-in-btn">Sign in</a></li>
         {% endif %}
@@ -46,7 +46,7 @@
     <nav class="nav-col">
       <p class="footer-heading">Company</p>
       <ul class="footer-nav">
-        <li><a class="footer-link" href="#">About Omnifood</a></li>
+        <li><a href="#" class="footer-link">About Omnifood</a></li>
         <li><a class="footer-link" href="#">For Business</a></li>
         <li><a class="footer-link" href="#">Cooking partners</a></li>
         <li><a class="footer-link" href="#">Careers</a></li>
