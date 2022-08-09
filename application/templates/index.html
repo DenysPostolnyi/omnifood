@@ -16,7 +16,9 @@
             Tailored to your personal
             tastes and nutritional needs.
           </p>
-          <a href="#cta" class="btn btn--full margin-right-sm">Start eating well</a>
+          {% if not session['full_name'] %}
+            <a href="#cta" class="btn btn--full margin-right-sm">Start eating well</a>
+          {% endif %}
           <a href="#how" class="btn btn--outline">Learn more &rArr;</a>
           <div class="delivered-meals">
             <div class="delivered-img">

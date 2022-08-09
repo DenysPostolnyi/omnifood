@@ -92,11 +92,11 @@ checkFlexGap();
 
 function message(text) {
     alert(text);
-    console.log(text)
 }
 
 ///////////////////////////////
 // Modal window
+
 const modal = document.querySelector(".login");
 
 // Get the button that opens the modal
@@ -106,9 +106,11 @@ const signBtn = document.querySelector(".sign-in-btn");
 const closeBtn = document.querySelector('.btn-login-close');
 
 // When the user clicks on the button, open the modal
-signBtn.addEventListener('click', function () {
-    modal.classList.toggle('open-modal');
-});
+if (signBtn !== null){
+    signBtn.addEventListener('click', function () {
+        modal.classList.toggle('open-modal');
+    });
+}
 
 // When the user clicks on <span> (x), close the modal
 closeBtn.addEventListener('click', function () {
@@ -121,4 +123,20 @@ window.onclick = function (event) {
         modal.classList.toggle('open-modal');
     }
 }
+
+//////////////////////////////////////////////////////
+// Falling list
+
+const list = document.querySelector(".fall-list-cont");
+
+// Get the button that opens the modal
+const openList = document.querySelector(".fall-opener");
+
+// When the user clicks on the button, open the modal
+if (openList !== null){
+    openList.addEventListener('click', function () {
+        list.classList.toggle('fall-list-cont-open');
+    });
+}
+
 
