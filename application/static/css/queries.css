@@ -177,6 +177,14 @@
   .main-nav-link:visited {
     font-size: 3rem;
   }
+
+  .fall-list-btn {
+    font-size: 3rem;
+  }
+
+  .fall-list {
+    transform: translateY(0);
+  }
 }
 
 /**************************/
