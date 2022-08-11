@@ -27,11 +27,13 @@
   <script defer src="../static/js/script.js"></script>
 
 </head>
+<h1>test</h1>
 {% with messages = get_flashed_messages(with_categories=false) %}
   <body onload="
       {% if text and text != None %}
         message('{{ text }}')
       {% elif messages %}
+
         {% for message in messages %}
           message('{{ message }}')
         {% endfor %}
