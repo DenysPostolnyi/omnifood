@@ -28,8 +28,12 @@
               <ion-icon class="fall-list-icon" name="chevron-down-outline"></ion-icon>
             </div>
             <div class="fall-list-cont" name="fall-content">
-              <a href="{{ url_for('home') }}" class="main-nav-link">Pause</a>
-              <a href="{{ url_for('home') }}" class="main-nav-link">Cancel</a>
+              {% if session['is_active'] == True %}
+                <a href="{{ url_for('pause') }}" class="main-nav-link">Pause</a>
+              {% else %}
+                <a href="{{ url_for('start') }}" class="main-nav-link">Start</a>
+              {% endif %}
+              <a href="{{ url_for('cancel') }}" class="main-nav-link">Cancel</a>
               <a href="{{ url_for('logout') }}" class="main-nav-link">Log out</a>
             </div>
           </div>

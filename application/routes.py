@@ -35,6 +35,7 @@ def login():
         if user and user['full_name'] == full_name:
             session['full_name'] = full_name
             session['email'] = email
+            session['is_active'] = user['is_active']
             return redirect(url_for("home"))
         else:
             flash('Enter is incorrect')
@@ -45,4 +46,28 @@ def login():
 def logout():
     session.pop('full_name', None)
     session.pop('email', None)
+    session.pop('is_active', None)
+    return redirect(url_for('home'))
+
+
+@app.route('/pause')
+def pause():
+    if session.get('email'):
+        Request.objects(email=session['email']).update_one(is_active=False)
+        session['is_active'] = False
+        flash('Your plan paused')
+    return redirect(url_for('home'))
+
+
+@app.route('/start')
+def start():
+    if session.get('email'):
+        Request.objects(email=session['email']).update_one(is_active=True)
+        session['is_active'] = True
+        flash('Your plan resumed')
+    return redirect(url_for('home'))
+
+
+@app.route('/cancel')
+def cancel():
     return redirect(url_for('home'))
