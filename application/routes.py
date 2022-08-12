@@ -11,11 +11,7 @@ def home():
     if session.get('username'):
         return render_template('index.html')
     if request.method == 'POST':
-        if functions.make_request(request.form) == 'User saved':
-            message = f"{request.form.get('full_name')}, wellcome"
-            session['full_name'] = request.form.get('full_name')
-            session['email'] = request.form.get('email')
-        elif functions.make_request(request.form) == 'User founded':
+        if functions.make_request(request.form) == 'User saved' or functions.make_request(request.form) == 'User founded':
             message = f"{request.form.get('full_name')}, wellcome"
             session['full_name'] = request.form.get('full_name')
             session['email'] = request.form.get('email')
@@ -30,10 +26,10 @@ def login():
         return redirect(url_for('home'))
     if request.method == 'POST':
         email = request.form.get('email')
-        full_name = request.form.get('full_name')
+        full_name = request.form.get('full_name').lower()
         user = Request.objects(email=email).first()
         if user and user['full_name'] == full_name:
-            session['full_name'] = full_name
+            session['full_name'] = request.form.get('full_name')
             session['email'] = email
             session['is_active'] = user['is_active']
             return redirect(url_for("home"))

@@ -4,9 +4,9 @@ from application.models import Request
 
 
 def make_request(form):
-    user_id = Request.objects.count() + 1
+    user_id = last_id() + 1
     email = form.get('email')
-    name = form.get('full_name')
+    name = form.get('full_name').lower()
     here = form.get('here')
     email_from_db = Request.objects.filter(email=email)
     if email_from_db:
@@ -20,3 +20,18 @@ def make_request(form):
     req.save()
     session['is_active'] = req['is_active']
     return 'User saved'
+
+
+def last_id():
+    t = list(Request.objects.aggregate(*[
+        {
+            '$group': {
+                '_id': '',
+                'last': {
+                    '$max': "$user_id"
+                }
+            }
+        }
+    ]))
+
+    return t[0]['last']
