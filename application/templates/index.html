@@ -5,7 +5,9 @@
     <section class="section-hero">
       {% if session['full_name'] %}
         <div class="wellcome">
-          <h2 class="heading-secondary">Hello, {{ session['full_name'] }}</h2>
+          <h2 class="heading-secondary">Hello, {{ session['full_name'] }}
+            {% if session['plan'] and session['plan'] != "" %}, your plan is {{ session['plan'] }}
+            {% endif %}</h2>
         </div>
       {% endif %}
       <div class="hero">
@@ -331,7 +333,11 @@
               <ion-icon class="list-icon" name="close-outline"></ion-icon>
           </ul>
           <div class="plan-sing-up">
-            <a href="#cta" class="btn btn--full">Start eating well</a>
+            {% if session['plan'] == "" %}
+              <a href="{{ url_for('select_plan')+'/starter' }}" class="btn btn--full">Start eating well</a>
+            {% else %}
+              <a href="#cta" class="btn btn--full">Start eating well</a>
+            {% endif %}
           </div>
         </div>
 
@@ -356,7 +362,11 @@
               <span>Get access to latest recipes</span></li>
           </ul>
           <div class="plan-sing-up">
-            <a href="#cta" class="btn btn--full">Start eating well</a>
+            {% if session['plan'] == "" %}
+              <a href="{{ url_for('select_plan')+'/complete' }}" class="btn btn--full">Start eating well</a>
+            {% else %}
+              <a href="#cta" class="btn btn--full">Start eating well</a>
+            {% endif %}
           </div>
         </div>
       </div>

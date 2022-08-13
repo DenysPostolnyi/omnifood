@@ -134,6 +134,10 @@
   transition: all 0.5s;
 }
 
+.fall-list--not-chose {
+  transform: translateY(2.7rem);
+}
+
 /**************************/
 /* MOBILE */
 /**************************/
