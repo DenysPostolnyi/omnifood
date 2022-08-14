@@ -1,0 +1,4 @@
+It's a web-site for restaurant. This project used to learn front-end part and some trainings with back-end(python flask). All user's info keeps in database MongoDB.
+Created user part: sign in, sign up and sign out. Also, user can choose plan, pause, resume and cancel it.
+
+File db_host.txt can be placed in .gitignore for more confidentiality.
