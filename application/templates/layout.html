@@ -32,6 +32,7 @@
       {% if text and text != None %}
         message('{{ text }}')
       {% elif messages %}
+
         {% for message in messages %}
           message('{{ message }}')
         {% endfor %}
