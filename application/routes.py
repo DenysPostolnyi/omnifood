@@ -85,4 +85,6 @@ def select_plan(plan=None):
             if plan == 'starter' or plan == 'complete':
                 Request.objects(email=session['email']).update_one(plan=plan)
                 session['plan'] = plan
+            if plan == 'starter-continue' or plan == 'complete-continue':
+                flash("Your plan is continued")
     return redirect(url_for('home'))
