@@ -20,6 +20,29 @@
         <li>
           <a href="#cta" class="main-nav-link nav-cta">Try for free</a>
         </li>
+      {% else %}
+        <li>
+          <div class="fall-list  {% if session['plan'] == "" %} fall-list--not-chose {% endif %}">
+            <div class="fall-opener">
+              <p class="fall-list-btn">User</p>
+              <ion-icon class="fall-list-icon" name="chevron-down-outline"></ion-icon>
+            </div>
+            <div class="fall-list-cont" name="fall-content">
+              {% if session['plan'] != "" %}
+                {% if session['is_active'] == True %}
+                  <a href="{{ url_for('pause') }}" class="main-nav-link">Pause</a>
+                {% else %}
+                  <a href="{{ url_for('start') }}" class="main-nav-link">Start</a>
+                {% endif %}
+                <a href="{{ url_for('cancel') }}" class="main-nav-link">Cancel</a>
+              {% else %}
+                <a href="#pricing" class="main-nav-link">Select plan</a>
+              {% endif %}
+
+              <a href="{{ url_for('logout') }}" class="main-nav-link">Log out</a>
+            </div>
+          </div>
+        </li>
       {% endif %}
     </ul>
   </nav>
@@ -28,5 +51,4 @@
     <ion-icon class="icon-mobile-nav" name="menu-outline"></ion-icon>
     <ion-icon class="icon-mobile-nav" name="close-outline"></ion-icon>
   </button>
-
 </header>

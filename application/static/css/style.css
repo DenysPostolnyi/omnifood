@@ -38,6 +38,7 @@
 
   /* For animation */
   transition: all 0.3s;
+  -webkit-user-select: none;
 }
 
 .main-nav-link.nav-cta:link,
@@ -46,6 +47,7 @@
   border-radius: 9px;
   color: #ffffff;
   background-color: #e67e22;
+  -webkit-user-select: none;
 }
 
 .main-nav-link:hover,
@@ -58,6 +60,82 @@
   padding: 1.2rem 2.4rem;
   border-radius: 9px;
   background-color: #cf711f;
+}
+
+/* Fall list */
+
+.fall-list {
+  transform: translateY(4.3rem);
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  align-items: center;
+}
+
+.fall-list-cont-open[name="fall-content"] {
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.fall-opener {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+
+  padding: 1.2rem 2.4rem;
+  border-radius: 9px;
+  color: #ffffff;
+  background-color: #e67e22;
+}
+
+.fall-list-btn {
+  display: inline-block;
+  text-decoration: none;
+  color: inherit;
+  font-weight: 500;
+  font-size: 1.8rem;
+
+  /* For animation */
+  transition: all 0.3s;
+  -webkit-user-select: none;
+}
+
+.fall-opener:hover {
+  padding: 1.2rem 2.4rem;
+  border-radius: 9px;
+  background-color: #cf711f;
+}
+
+.fall-list-icon {
+  width: 3rem;
+  height: 3rem;
+  color: inherit;
+  /* For animation */
+  transition: all 0.3s;
+  -webkit-user-select: none;
+}
+
+.fall-list-cont {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  transform: translateY(-4.3rem);
+
+  /* 1) Hide it visually */
+  opacity: 0;
+
+  /* 2) Make it inaccessible to mouse and keyboard */
+  pointer-events: none;
+
+  /* 3) Hide it from screen readers */
+  visibility: hidden;
+  transition: all 0.5s;
+}
+
+.fall-list--not-chose {
+  transform: translateY(2.7rem);
 }
 
 /**************************/
