@@ -9,14 +9,16 @@ from application import functions
 def home():
     message = None
     if session.get('username'):
+        print(f"session: {session['plan']}")
         return render_template('index.html')
     if request.method == 'POST':
-        if functions.make_request(request.form) == 'User saved' or functions.make_request(
-                request.form) == 'User founded':
+        if functions.make_request(request.form) is True or functions.make_request(
+                request.form) is True:
             message = f"{request.form.get('full_name')}, wellcome"
             session['full_name'] = request.form.get('full_name')
             session['email'] = request.form.get('email')
-        elif functions.make_request(request.form) == 'Email is already existed':
+            print(f"session: {session['plan']}")
+        elif functions.make_request(request.form) is False:
             message = 'Email is already existed'
     return render_template('index.html', text=message)
 

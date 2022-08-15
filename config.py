@@ -8,6 +8,6 @@ class Config(object):
     with open('db_host.txt') as f:
         host = f.read().strip()
 
-    MONGODB_SETTINGS = {'db': 'Omnifood',
+    MONGODB_SETTINGS = {'db': 'Cluster0',
                         'host': host
                         }

@@ -5,8 +5,13 @@
     <section class="section-hero">
       {% if session['full_name'] %}
         <div class="wellcome">
-          <h2 class="heading-secondary">Hello, {{ session['full_name'] }}
-            {% if session['plan'] and session['plan'] != "" %}, your plan is {{ session['plan'] }}
+          <h2 class="heading-secondary">Hello,
+            {{ session['full_name'] }}{% if session['plan'] and session['plan'] != "" %}, your plan is
+              {{ session['plan'] }}
+              {% if session['is_active'] == True %}active {% else %}paused
+
+              {% endif %}
+            {% else %}, choose plan
             {% endif %}</h2>
         </div>
       {% endif %}
@@ -333,12 +338,10 @@
               <ion-icon class="list-icon" name="close-outline"></ion-icon>
           </ul>
           <div class="plan-sing-up">
-            {% if session['plan'] %}
-              {% if session['plan'] == "" %}
-                <a href="{{ url_for('select_plan')+'/starter' }}" class="btn btn--full">Start eating well</a>
-              {% elif session['plan'] == "starter" %}
-                <a href="{{ url_for('select_plan')+'/starter-continue' }}" class="btn btn--full">Continue plan</a>
-              {% endif %}
+            {% if session['plan'] == "" %}
+              <a href="{{ url_for('select_plan')+'/starter' }}" class="btn btn--full">Start eating well</a>
+            {% elif session['plan'] == "starter" or session['plan'] == "complete" %}
+              <a href="{{ url_for('select_plan')+'/starter-continue' }}" class="btn btn--full">Continue plan</a>
             {% else %}
               <a href="#cta" class="btn btn--full">Start eating well</a>
             {% endif %}
@@ -366,12 +369,10 @@
               <span>Get access to latest recipes</span></li>
           </ul>
           <div class="plan-sing-up">
-            {% if session['plan'] %}
-              {% if session['plan'] == "" %}
-                <a href="{{ url_for('select_plan')+'/complete' }}" class="btn btn--full">Start eating well</a>
-              {% elif session['plan'] == "starter" %}
-                <a href="{{ url_for('select_plan')+'/complete-continue' }}" class="btn btn--full">Continue plan</a>
-              {% endif %}
+            {% if session['plan'] == "" %}
+              <a href="{{ url_for('select_plan')+'/complete' }}" class="btn btn--full">Start eating well</a>
+            {% elif session['plan'] == "starter" or session['plan'] == "complete" %}
+              <a href="{{ url_for('select_plan')+'/complete-continue' }}" class="btn btn--full">Continue plan</a>
             {% else %}
               <a href="#cta" class="btn btn--full">Start eating well</a>
             {% endif %}

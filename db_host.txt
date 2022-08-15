@@ -1,1 +1,1 @@
-mongodb://localhost:27017/Omnifood.food
+mongodb+srv://Denchik:Den05012004@cluster0.3aza0kt.mongodb.net/?retryWrites=true&w=majority
