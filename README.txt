@@ -1,6 +1,4 @@
-It's a web-site for restaurant. This project used to learn front-end part and some trainings with back-end(python flask). All user's info keeps in database MongoDB.
-Created user part: sign in, sign up and sign out. Also, user can choose plan, pause, resume and cancel it.
+It's a website for Omnifood restaurant. This project used to learn the Front-end part (HTML, CSS, and some JS) and some training with the Back-end (python and framework flask). All users' info is kept in the MongoDB database.
+Implemented logic for users: sign in, sign up, and sign out. Also, users can choose a plan, pause, resume, and cancel it.
 
 File db_host.txt was placed in .gitignore for more confidentiality.
-
-url for web-site - https://omnifoodapplication.herokuapp.com/
